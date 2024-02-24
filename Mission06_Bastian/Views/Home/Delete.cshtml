@@ -4,12 +4,14 @@
 @{
 }
 
-@* <h2>Confirm Deletion</h2
-<h3>@Model.LastName, @Model.FirstName</h3>
+@model Movie
+
+<h2>Confirm Deletion</h2
+<h3>@Model.Title (@Model.Year)</h3>
 
 <form method="POST">
-    <input type="hidden" asp-for="ApplicationID" />
+    <input type="hidden" asp-for="MovieId" />
 
-    <button type="submit">Delete</button>
-    <a class="btn btn-info" asp-controller="Home" asp-action="Waitlist">Cancel</a>
-</form> *@
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-info" asp-controller="Home" asp-action="ViewMovies">Cancel</a>
+</form>
