@@ -54,6 +54,10 @@ namespace Mission06_Bastian.Controllers
 
         public IActionResult ViewMovies()
         {
+            ViewBag.Categories = _context.Categories.ToList()
+                .OrderBy(x => x.CategoryId)
+                .ToList();
+
             var movies = _context.Movies
                 .OrderBy(x => x.Title)
                 .ToList();
