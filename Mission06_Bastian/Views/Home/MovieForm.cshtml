@@ -8,6 +8,8 @@
 <h1>Movie Collection</h1>
 
 <form method="POST">
+    <input type="hidden" asp-for="MovieId" />
+
     <label asp-for="Category">Category:</label>
     <input asp-for="Category" required />
     <br /><br />
