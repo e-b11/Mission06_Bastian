@@ -77,10 +77,21 @@ namespace Mission06_Bastian.Controllers
         [HttpPost]
         public IActionResult Edit(Movie updatedInfo)
         {
-            _context.Update(updatedInfo);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Update(updatedInfo);
+                _context.SaveChanges();
 
-            return RedirectToAction("ViewMovies");
+                return RedirectToAction("ViewMovies");
+            }
+            else
+            {
+                ViewBag.Categories = _context.Categories.ToList()
+                 .OrderBy(x => x.CategoryId)
+                 .ToList();
+
+                return View("MovieForm", updatedInfo);
+            }
         }
 
         [HttpGet]
